@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McCoy Car Company | Auto Repair in Salunga-Landisville, PA</title>
+    <meta name="description" content="Honest auto repair in Salunga-Landisville, PA. Oil changes, brakes, inspections, tires & more. Trusted local service with fair prices.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #111111;
+            --dark: #1a1a1a;
+            --gray: #6b6b6b;
+            --light-gray: #f0f0f0;
+            --off-white: #f7f7f5;
+            --white: #ffffff;
+            --accent: #111111;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--black);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: background 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            left: 2rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            transition: color 0.3s;
+        }
+
+        header.scrolled .logo {
+            color: var(--black);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--white);
+            transition: opacity 0.2s;
+            letter-spacing: 0.01em;
+        }
+
+        header.scrolled nav a {
+            color: var(--black);
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+            position: absolute;
+            right: 2rem;
+        }
+
+        header.scrolled .menu-toggle {
+            color: var(--black);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+                        url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding: 0 1.5rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .btn-light:hover {
+            background: var(--off-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 6rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ========== ABOUT ========== */
+        .about {
+            background: var(--off-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat span {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* ========== SERVICES ========== */
+        .services {
+            background: var(--white);
+        }
+
+        .services-header {
+            max-width: 600px;
+            margin-bottom: 3.5rem;
+        }
+
+        .services-header p {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .services-list {
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .service-item {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.75rem 0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .service-item:hover {
+            background: var(--off-white);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .service-toggle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--gray);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .service-item.active .service-toggle {
+            transform: rotate(45deg);
+        }
+
+        .service-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .service-item.active .service-body {
+            max-height: 300px;
+            padding-top: 1rem;
+        }
+
+        .service-body ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.4rem 1.5rem;
+        }
+
+        .service-body li {
+            font-size: 0.95rem;
+            color: #555;
+            padding-left: 1.1rem;
+            position: relative;
+        }
+
+        .service-body li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--gray);
+        }
+
+        .services-cta {
+            margin-top: 3rem;
+        }
+
+        /* ========== WHY US ========== */
+        .why-us {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .why-us h2 {
+            color: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .why-card p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            background: var(--off-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info > p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+            max-width: 400px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.35rem;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .map-box {
+            background: #e8e8e8;
+            border-radius: 16px;
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        .map-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ========== CTA ========== */
+        .cta {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 1.5rem;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto 1.25rem;
+        }
+
+        .cta p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 2.5rem;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer .logo-text {
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        /* ========== MOBILE ========== */
+        @media (max-width: 900px) {
+            .about-grid,
+            .contact-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .header-inner {
+                justify-content: space-between;
+            }
+
+            .logo {
+                position: static;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1.25rem;
+                border-bottom: 1px solid #eee;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                color: var(--black) !important;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-inner">
+            <a href="#" class="logo">McCoy Car Company</a>
+            <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')" aria-label="Menu">☰</button>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Honest Auto Care<br>You Can Trust</h1>
+            <p>Quality repairs and honest service for Salunga, Landisville, and the Lancaster County community.</p>
+            <a href="tel:7174593388" class="btn btn-light">Call (717) 459-3388</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-label">About Us</div>
+                    <h2>Local shop.<br>Real results.</h2>
+                    <p>At McCoy Car Company, we’re a local auto repair shop serving Salunga, Landisville, and the greater Lancaster County area. We’re known for straightforward service, fair pricing, and mechanics who explain what’s going on with your vehicle in plain language.</p>
+                    <p>We handle everything from routine maintenance to more complex repairs on domestic and foreign vehicles. Our customers consistently tell us the same things: we don’t push unnecessary work, we give accurate quotes, and we treat their cars like our own.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <strong>5.0★</strong>
+                        <span>Customer Rating</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Local</strong>
+                        <span>Family Shop</span>
+                    </div>
+                    <div class="stat">
+                        <strong>All Makes</strong>
+                        <span>Domestic & Foreign</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Honest</strong>
+                        <span>No Pressure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <div class="section-label">What We Do</div>
+                <h2>Services that keep you on the road</h2>
+                <p>From everyday maintenance to bigger repairs, we take care of it all with clear communication and fair pricing.</p>
+            </div>
+
+            <div class="services-list">
+                <div class="service-item active">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <h3>Maintenance & Routine Care</h3>
+                        <span class="service-toggle">+</span>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Oil Changes (conventional & synthetic)</li>
+                            <li>Fluid Checks & Top-Offs</li>
+                            <li>Filter Replacements</li>
+                            <li>Multi-Point Vehicle Inspections</li>
+                            <li>Preventative Maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <h3>Brakes</h3>
+                        <span class="service-toggle">+</span>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Brake Pad Replacement</li>
+                            <li>Rotor Resurfacing or Replacement</li>
+                            <li>Brake System Inspection & Repair</li>
+                            <li>Brake Fluid Service</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <h3>Tires</h3>
+                        <span class="service-toggle">+</span>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>New Tire Sales & Installation</li>
+                            <li>Flat Tire Repair / Plug</li>
+                            <li>Tire Rotation & Balancing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <h3>Exhaust & Emissions</h3>
+                        <span class="service-toggle">+</span>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Exhaust System Repair</li>
+                            <li>Muffler Replacement</li>
+                            <li>Exhaust Leak Diagnosis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <h3>Inspections</h3>
+                        <span class="service-toggle">+</span>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Pennsylvania State Safety Inspection</li>
+                            <li>Emissions Inspection</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-header" onclick="toggleService(this)">
+                        <h3>General Repairs</h3>
+                        <span class="service-toggle">+</span>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Engine Diagnostics & Repair</li>
+                            <li>Check Engine Light Diagnosis</li>
+                            <li>Electrical System Repair</li>
+                            <li>Battery Testing & Replacement</li>
+                            <li>Headlight / Lighting Repair</li>
+                            <li>Suspension & Steering</li>
+                            <li>Cooling System Service</li>
+                            <li>Transmission Service & Repair</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-cta">
+                <a href="tel:7174593388" class="btn btn-dark">Call to Schedule</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-label" style="color: rgba(255,255,255,0.5);">Why McCoy</div>
+            <h2>What local drivers appreciate</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Honest Recommendations</h3>
+                    <p>We only suggest work that truly needs to be done. No upselling or pressure.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Clear Communication</h3>
+                    <p>We explain issues in plain language so you understand your options.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Fair Pricing</h3>
+                    <p>Competitive rates with no hidden fees. Accurate quotes upfront.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Local & Trusted</h3>
+                    <p>Proudly serving Salunga, Landisville, and surrounding communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-label">Get In Touch</div>
+                    <h2>Visit us or call today</h2>
+                    <p>We’re ready to help keep your vehicle running safely and reliably.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Address</strong>
+                            <p>12 W Main Street<br>Salunga, PA 17538</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone</strong>
+                            <p><a href="tel:7174593388">(717) 459-3388</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Hours</strong>
+                            <p>Monday – Friday<br>8:00 AM – 5:00 PM</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2.5rem;">
+                        <a href="tel:7174593388" class="btn btn-dark">Call Now</a>
+                    </div>
+                </div>
+                <div class="map-box">
+                    <div>
+                        <p style="font-weight: 600; color: #333; margin-bottom: 0.5rem;">12 W Main Street</p>
+                        <p>Salunga, PA 17538<br>(Landisville area)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to get your car taken care of?</h2>
+            <p>Call us today or stop by the shop. Honest service and quality work are waiting.</p>
+            <a href="tel:7174593388" class="btn btn-light">Call (717) 459-3388</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo-text">McCoy Car Company</div>
+        <p>12 W Main Street, Salunga, PA 17538 · (717) 459-3388</p>
+        <p style="margin-top: 0.75rem; opacity: 0.5;">© 2026 McCoy Car Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Service accordion
+        function toggleService(el) {
+            const item = el.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all
+            document.querySelectorAll('.service-item').forEach(i => i.classList.remove('active'));
+            
+            // Open clicked if it wasn't already open
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
